@@ -15,7 +15,7 @@ export class BookComponent implements OnInit {
     movieId:number;
 
     ngOnInit(): void {
-        let name = this.route.snapshot.paramMap.get('name');
+        let name = this.route.snapshot.paramMap.get('name'); 
         console.log(name);
         this.pageTitle += `:${name}`;
     }

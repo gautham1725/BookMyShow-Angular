@@ -8,14 +8,17 @@ import { MovieComponent } from './../movie/movie.component';
 import { AboutComponent } from './../about/about.component'; 
 import { BookComponent } from "src/book/book.component";
 import { RatingComponent } from "src/shared/rating.component";
+import { UserComponent } from "src/user/user.component";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent , HomeComponent , AboutComponent , MovieComponent , BookComponent , RatingComponent
+    AppComponent , HomeComponent , AboutComponent , MovieComponent , BookComponent , RatingComponent , UserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

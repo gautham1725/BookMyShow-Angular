@@ -1,5 +1,6 @@
-<h4>{{ title }} </h4>
-
+<br>
+<div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"> <h4>{{ title }} </h4> </div>
+<br>
 <!--
 <input type="text" [(ngModel)]='topMovie' value="Top-Movie"/><br> <br>
 <input type="text" [(ngModel)]='topMovie' value="Top-Movie"/><br> <br>
@@ -43,7 +44,7 @@
         <tr  *ngFor = "let mov of movies">
 
         <td> {{ mov.mid }} </td>
-         <td> <a [routerLink] = " ['/movies' , mov.movieName ] " > {{ mov.movieName | uppercase}} </a> </td>
+         <td> <a [routerLink] = " ['/movies' , mov.movieName ] " > {{ mov.movieName }} </a> </td>
          <td> {{mov.actor }} </td>
          <td> {{mov.price }} </td>
          <td> {{mov.release }} </td>
@@ -59,7 +60,7 @@
         
          
          <td>
-            <a [routerLink] = "['/book' , mov.moviename ]" > Book Now </a>
+            <a [routerLink] = "['/movies' , mov.moviename ]" > Book Now </a>
          </td>
         
         </tr>

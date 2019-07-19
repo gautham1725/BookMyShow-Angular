@@ -1,0 +1,49 @@
+<div class="card">
+<div class="card-header">
+
+Register Please!
+
+</div>
+<div class="card-body">
+<form novalidate (ngSubmit)="save(regForm)"
+#regForm="ngForm">
+<div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="firstNameId">First Name</label>
+        <div class="col-md-8">
+            <input type="text" required
+                    class="form-control"
+                    id="firstNameId"
+                    minlength="3"
+                    name="firstName"
+                    [(ngModel)] = user.firstName
+                    #firstNameVar="ngModel"
+                    [ngClass]="{'is-invalid':(firstNameVar.touched||firstNameVar.dirty)&& !firstNameVar.valid }  " /> 
+                    <span class="invalid-feedback">
+                            <span *ngIf="firstNameVar.errors?.required">
+                              Please enter your first name.
+                            </span>
+                            <span *ngIf="firstNameVar.errors?.minlength">
+                              The first name must be longer than 3 characters.
+                            </span>
+                          </span>
+
+                          <div class="form-group row mb-2">
+                                <div class="offset-md-2 col-md-4">
+                                  <button class="btn btn-primary mr-3"
+                                          type="submit"
+                                          style="width:80px"
+                                          [title]="regForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                                          [disabled]="!regForm.valid">
+                                    Save
+                                  </button>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+     
+</form>
+
+</div>
+</div>
