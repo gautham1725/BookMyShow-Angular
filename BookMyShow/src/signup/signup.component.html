@@ -1,0 +1,155 @@
+<br>
+
+<p style="color:black;width: 400px;font-family: Comic Sans MS; border-bottom-style: solid;margin-left: 500px;
+font-size: 20px;text-align: center;padding-bottom: 10px">Fill out the form to Sign Up !!</p>
+<br>
+<form style="margin-left: 400px ; " novalidate (ngSubmit)="save(regForm)" #regForm = "ngForm" >
+
+        <div class="form-group row">
+          <label for="username" class="col-sm-2 col-form-label">Your Name</label>
+          <div class="col-sm-6">
+            <input type="text" 
+                  class="form-control" 
+                  id="username"
+                  [(ngModel)] = user.username
+                  #usernameVar = "ngModel"
+                  placeholder="Enter Your Name"
+                  [ngClass]="{'is-invalid':(userNamevar.touched||userNamevar.dirty)&& !userNamevar.valid } "
+                  />
+
+                  <span class="invalid-feedback">
+                        <span *ngIf="userNamevar.errors?.required">
+                          Please enter your first name.
+                        </span>
+                        <span *ngIf="userNamevar.errors?.minlength">
+                          The first name must be longer than 3 characters.
+                        </span>
+                      </span>
+
+          </div>
+        </div>
+    
+        <div class="form-group row">
+          
+          <label for="password" class="col-sm-2 col-form-label">Your Name</label>
+          <div class="col-sm-6">
+            <input type="text" 
+                  class="form-control" 
+                  id="password" 
+                  maxlength="8"
+                  placeholder="Set your password"
+                  required
+                  [(ngModel)] = user.password
+                  #passwordVar = "ngModel"
+                  [ngClass]="{'is-invalid':(passwordVar.touched||passwordVar.dirty)&& !passwordVar.valid } "
+                  />
+
+                  <span class="invalid-feedback">
+                        <span *ngIf="passwordVar.errors?.required">
+                          Please enter your password.
+                        </span>
+                        <span *ngIf="passwordVar.errors?.minlength">
+                          The Password must be longer than 8 characters.
+                        </span>
+                      </span>
+
+          </div>
+        </div>
+
+    <div class="form-group row" >
+    
+        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+    
+        <div class="col-sm-6" >
+        <div class="form-check" >
+            <input class="form-check-input" 
+                    type="radio" 
+                    name="medium" 
+                    id="male" 
+                    value="option1" 
+                    checked
+                    [(ngModel)] = user.gender
+                    #genderVar = "ngModel"
+                    [ngClass]="{'is-invalid':(genderVar.touched||genderVar.dirty)&& !genderVar.valid } "
+                    >
+            <label class="form-check-label" for="first">
+              Male
+            </label>
+          </div> 
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="medium" id="female" value="option2">
+            <label class="form-check-label" for="second">
+              Female
+            </label>
+          </div> 
+          
+          </div>
+    </div>
+    
+    <div class="form-group row">
+          <label for="email" class="col-sm-2 col-form-label">Your Mail Id</label>
+          <div class="col-sm-6">
+            <input type="email" 
+                  class="form-control" 
+                  id="mail"
+                  placeholder="Enter Your Mail Id"
+                  [(ngModel)] = user.email
+                  #emailvar = "ngModel"
+                  [ngClass]="{'is-invalid':(emailvar.touched||emailvar.dirty)&& !emailvar.valid } "
+                  >
+
+                  <span class="invalid-feedback">
+                        <span *ngIf="emailvar.errors?.required">
+                          Please enter your Mail Id.
+                        </span>
+                      </span>
+          </div>
+        </div>
+        
+        <div class="form-group row">
+                <label for="mobile" class="col-sm-2 col-form-label">Your Mobile Number</label>
+                <div class="col-sm-6">
+                  <input type="mobile" 
+                        class="form-control" 
+                        id="mobile"
+                        placeholder="Enter Your Mobile Number"
+                        maxlength="10"
+                        [(ngModel)] = user.mobile
+                        #mobilevar = "ngModel"
+                        [ngClass]="{'is-invalid':(mobilevar.touched||mobilevar.dirty)&& !mobilevar.valid } "
+                        />
+
+                        <span class="invalid-feedback">
+                                <span *ngIf="mobilevar.errors?.required">
+                                  Please enter your Mobile Number.
+                                </span>
+                                <span *ngIf="mobilevar.errors?.minlength">
+                                  The Mobile Number must be longer than 10 characters.
+                                </span>
+                              </span>
+
+                        
+                </div>
+              </div>
+
+        <br> <br>
+    <div class="form-group row">
+        <div class="offset-md-2 col-md-2">
+          <input  class="btn btn-primary mr-3"
+                  type="submit"
+                  style="width:100px"
+                  value="Sign Up" 
+                  [title]="regForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!regForm.valid">
+             
+        </div>
+    
+    
+        <button class='btn btn-outline-secondary'
+                (click)='onBack()'
+                style='width:80px'>
+         Back
+        </button>
+      </div>
+    </form>

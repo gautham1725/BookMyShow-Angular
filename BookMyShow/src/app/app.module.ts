@@ -10,10 +10,13 @@ import { BookComponent } from "src/book/book.component";
 import { RatingComponent } from "src/shared/rating.component";
 import { UserComponent } from "src/user/user.component";
 import { FormsModule } from "@angular/forms";
+import { ErrorComponent } from 'src/ErrorComponent/error.component';
+import { NewUserComponent } from 'src/signup/signup.component';
 
 @NgModule({
   declarations: [
-    AppComponent , HomeComponent , AboutComponent , MovieComponent , BookComponent , RatingComponent , UserComponent
+    AppComponent , HomeComponent , AboutComponent , MovieComponent , BookComponent ,
+           RatingComponent , UserComponent ,ErrorComponent ,NewUserComponent
   ],
   imports: [
     BrowserModule,
@@ -23,4 +26,5 @@ import { FormsModule } from "@angular/forms";
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

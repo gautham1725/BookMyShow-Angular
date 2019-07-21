@@ -44,7 +44,7 @@
         <tr  *ngFor = "let mov of movies">
 
         <td> {{ mov.mid }} </td>
-         <td> <a [routerLink] = " ['/movies' , mov.movieName ] " > {{ mov.movieName }} </a> </td>
+         <td> <a [routerLink] = " ['/movie' , mov.movieName ] " > {{ mov.movieName }} </a> </td>
          <td> {{mov.actor }} </td>
          <td> {{mov.price }} </td>
          <td> {{mov.release }} </td>
@@ -58,9 +58,9 @@
                  [style.height.px] = 'imgHeight' >
          </td>
         
-         
+                            
          <td>
-            <a [routerLink] = "['/movies' , mov.moviename ]" > Book Now </a>
+            <a [routerLink] = " ['/movie' , mov.movieName ] " > Book Now </a>
          </td>
         
         </tr>
