@@ -1,6 +1,8 @@
 <br>
-<div style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif"> <h4>{{ title }} </h4> </div>
+
+<div style="font-family: 'Comic Sans MS' ; border-bottom-style:solid; width: 170px ; margin-left: 20px"> <h4>{{ title }} </h4> </div>
 <br>
+
 <!--
 <input type="text" [(ngModel)]='topMovie' value="Top-Movie"/><br> <br>
 <input type="text" [(ngModel)]='topMovie' value="Top-Movie"/><br> <br>
@@ -24,7 +26,7 @@
 
 -->
 
-<table class="table " *ngIf= " movies.length > 0 " >
+<table class="table table-active " *ngIf= " movies.length > 0 " >
     <thead>
     <tr> 
     
@@ -68,3 +70,15 @@
     </tbody>
 
 </table>
+<br>
+
+<div style="margin-left: 25px">
+
+<button  class='btn btn-primary'
+            (click)='onBack()'
+            style='width:80px'>
+            home
+        </button>
+</div>
+<br>
+

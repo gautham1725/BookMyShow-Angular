@@ -4,9 +4,11 @@
 Register Please!
 
 </div>
+
 <div class="card-body">
-<form novalidate (ngSubmit)="save(regForm)"
-#regForm="ngForm">
+  
+<form novalidate (ngSubmit)="save(regForm)" #regForm="ngForm">
+
 <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label"
                for="firstNameId">First Name</label>
@@ -19,6 +21,7 @@ Register Please!
                     [(ngModel)] = user.firstName
                     #firstNameVar="ngModel"
                     [ngClass]="{'is-invalid':(firstNameVar.touched||firstNameVar.dirty)&& !firstNameVar.valid }  " /> 
+
                     <span class="invalid-feedback">
                             <span *ngIf="firstNameVar.errors?.required">
                               Please enter your first name.
@@ -27,7 +30,7 @@ Register Please!
                               The first name must be longer than 3 characters.
                             </span>
                           </span>
-
+              </div>
                           <div class="form-group row mb-2">
                                 <div class="offset-md-2 col-md-4">
                                   <button class="btn btn-primary mr-3"
@@ -39,7 +42,7 @@ Register Please!
                                   </button>
                                 </div>
                                 </div>
-                            </div>
+                            
                         </div>
                         
      

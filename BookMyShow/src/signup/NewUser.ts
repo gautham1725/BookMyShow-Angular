@@ -6,7 +6,7 @@ public userName ='',
 public password ='',
 public gender ='',
 public email='',
-public Mobile=''
+public mobile=''
 
 )
 

@@ -1,6 +1,7 @@
 import { NgForm } from "@angular/forms/forms";
 import { Component, OnInit } from "@angular/core";
 import { NewUser } from './NewUser';
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
     selector:'user-app',
@@ -15,16 +16,20 @@ export class NewUserComponent implements OnInit{
 /**
  *
  */
-constructor() {
 
+constructor(private route : ActivatedRoute , private router : Router){};
 
-}
     user = new NewUser();
+
+     onBack() : void{
+        this.router.navigate(['/home'])
+    }
+
 
     save(userForm:NgForm){
     console.log(userForm.form);
     console.log('Saved data ' + userForm.value);
-
+    this.router.navigate(['/done'])
     }
 
 }
