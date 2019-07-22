@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BookMyShow';
+ public wishlist:any=[];
+  // selected: number = 0;
+
+  //   select= function(index) {
+  //      selected = index; 
+  //   };
 }

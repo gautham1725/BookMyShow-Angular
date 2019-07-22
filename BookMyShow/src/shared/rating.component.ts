@@ -14,7 +14,7 @@ export class RatingComponent {
     @Output() ratingClick : EventEmitter<string>  = new EventEmitter<string>();
 
     ngOnChanges(): void {
-      this.starWidth = +this.ratings * 75/5;
+      this.starWidth = +this.ratings * 80/5;
     }
 
     onclick() : void{

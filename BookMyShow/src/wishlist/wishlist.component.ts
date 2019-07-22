@@ -4,24 +4,27 @@ import { User } from 'src/book/user';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'book',
-  templateUrl: './book.component.html',
+  selector: 'wishlist',
+  templateUrl: './wishlist.component.html',
 })
 
-export class BookComponent implements OnInit {
+export class WishListComponent implements OnInit {
 
     constructor(private route : ActivatedRoute , private router : Router){};
 
-    movieName:string="";
+    wishlist:any=[];
+    index:number;
 
     ngOnInit(): void {
         let name = this.route.snapshot.paramMap.get('name'); 
         console.log(name);
-        this.movieName += `${name}`;
+        this.wishlist.push(this.index , `${name}`);
+        this.index = this.index +1;
+        console.log(name);
     }
 
     onBack() : void{
-        this.router.navigate(['/movies'])
+        this.router.navigate(['/home'])
     }
 
     user = new User();
@@ -29,7 +32,6 @@ export class BookComponent implements OnInit {
     save(userForm:NgForm){
         console.log(userForm.form);
         console.log('Saved data ' + userForm.value);
-        this.router.navigate(['/booked'])
     }
 
 }

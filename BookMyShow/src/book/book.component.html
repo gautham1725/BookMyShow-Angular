@@ -102,20 +102,23 @@
 <br> <br>
 <div class="form-group row">
     <div class="offset-md-2 col-md-2">
-      <input  class="btn btn-primary mr-3"
+      <button  class="btn btn-primary mr-3"
               type="submit"
               style="width:100px"
-              value="Book Now" >
-              <!-- [title]="regForm.valid ? 'Save your entered data' :
-                 'Disabled until the form data is valid'" -->
+              value="Book Now" 
+              [title]="regForm.valid ? 'Save your entered data' :
+                 'Disabled until the form data is valid'"
+                 >
+                Book Now
+                </button>
+              
               <!-- [disabled]="!regForm.valid"> -->
-         
-    </div>
 
+    </div>
 
     <button class='btn btn-outline-secondary'
             (click)='onBack()'
-            style='width:80px'>
+            style='width:80px '>
      Back
     </button>
   </div>

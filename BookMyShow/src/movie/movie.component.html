@@ -20,7 +20,7 @@
 
     [style.width.px] = 'imgWidth'
     [style.height.px] = 'imgHeight'
-    [title] = 'title' > 
+    [title] = 'title' >
 <br> <br>
 <img src='./../assets/Movie-Images/ff7.jpg' style="width:800px ; height:400px" > <br><br>
 
@@ -28,15 +28,15 @@
 
 <table class="table table-active " *ngIf= " movies.length > 0 " >
     <thead>
-    <tr> 
-    
-    <th> MovieId </th>
+    <tr>
+
+    <!-- <th> MovieId </th> -->
     <th> Movie Name </th>
-    <th> Actor </th> 
-    <th> Price </th> 
-    <th> Release </th> 
+    <th> Actor </th>
+    <th> Price </th>
+    <th> Languages </th>
     <th> Ratings </th>
-    <th> Image </th>
+    <th> Poster </th>
     <th> Booking </th>
     </tr>
     </thead>
@@ -45,40 +45,31 @@
 
         <tr  *ngFor = "let mov of movies">
 
-        <td> {{ mov.mid }} </td>
-         <td> <a [routerLink] = " ['/movie' , mov.movieName ] " > {{ mov.movieName }} </a> </td>
-         <td> {{mov.actor }} </td>
+        <!-- <td> {{ mov.mid }} </td> -->
+         <td> <a [routerLink] = " ['/movie' , mov.movieName ] " > {{ mov.movieName | uppercase }} </a> </td>
+         <td> {{mov.actor | uppercase }} </td>
          <td> {{mov.price }} </td>
-         <td> {{mov.release }} </td>
+         <td> {{mov.languages | uppercase }} </td>
           <td>
             <mov-rating [ratings] = 'mov.rating'
                     (ratingClick) = 'onRatingClicked($event)' ></mov-rating>
          </td>
-         <td> <img [src]= 'mov.imageUrl' 
+         <td> <img [src]= 'mov.imageUrl'
 
                  [style.width.px] = 'imgWidth'
                  [style.height.px] = 'imgHeight' >
          </td>
-        
-                            
+
+
          <td>
-            <a [routerLink] = " ['/movie' , mov.movieName ] " > Book Now </a>
+
+            <a title="Book Now" [routerLink] = " ['/movie' , mov.movieName ] " class="fa fa-film fa-3x" style="color: purple" >   </a>
          </td>
-        
+
         </tr>
-  
+
     </tbody>
 
 </table>
-<br>
-
-<div style="margin-left: 25px">
-
-<button  class='btn btn-primary'
-            (click)='onBack()'
-            style='width:80px'>
-            home
-        </button>
-</div>
 <br>
 

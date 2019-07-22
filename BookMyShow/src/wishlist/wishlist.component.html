@@ -1,0 +1,32 @@
+<table class="table table-active " *ngIf= " wishlist.length > 0 " >
+    <thead>
+    
+    <th> Movie Name </th>
+    
+    </thead>
+
+    <tbody>
+
+        <tr  *ngFor = "let ws of wishlist">
+        <td> {{ ws }} </td>
+
+        <!-- <td> <img [src]= 'mov.imageUrl' 
+
+                 [style.width.px] = 'imgWidth'
+                 [style.height.px] = 'imgHeight' >
+         </td> -->
+
+        </tr>
+  
+    </tbody>
+
+</table>
+
+<div style="margin-left: 25px">
+
+    <button  class='btn btn-primary'
+                (click)='onBack()'
+                style='width:80px'>
+                home
+            </button>
+    </div>

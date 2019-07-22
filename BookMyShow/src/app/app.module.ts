@@ -13,11 +13,14 @@ import { FormsModule } from "@angular/forms";
 import { ErrorComponent } from 'src/Error/error.component';
 import { NewUserComponent } from 'src/signup/signup.component';
 import { DoneComponent } from "src/done/done.component";
+import { WishListComponent } from 'src/wishlist/wishlist.component';
+import { BookedComponent } from 'src/booked/booked.component';
 
 @NgModule({
   declarations: [
     AppComponent , HomeComponent , AboutComponent , MovieComponent , BookComponent ,
-           RatingComponent , UserComponent ,ErrorComponent ,NewUserComponent , DoneComponent
+           RatingComponent , UserComponent ,ErrorComponent ,NewUserComponent , 
+                    DoneComponent ,WishListComponent, BookedComponent
   ],
   imports: [
     BrowserModule,
