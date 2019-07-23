@@ -9,37 +9,50 @@ import { Router, ActivatedRoute } from "@angular/router";
 
 export class MovieComponent   {
  
-  // searchedMovies : any[] = [];
-  // movieSearch:string;
-  // errorMessage:string;
 
-  constructor( private movService : MovieService , private route : ActivatedRoute , private router : Router ){
+  constructor( private movService : MovieService  ){
     
   }
-
-  
-
-
-
-  
 
   title:string = 'Now Showing :';
   imgWidth:number=100;
   imgHeight:number=50;
+  movies:any[] = [];
+  searchedMovies:any[]=[];
+ _movieSearch:string;
+  errorMessage:string;
+
+
+  ngOnInit(): void {
+
+      this.movService.getMovies().subscribe(
+      movies =>{
+      this.movies = movies;
+      this.searchedMovies = movies;
+      },
+
+      error =>this.errorMessage = error
+
+      );
+
+  }
+
+  get movieSearch():string{
+  return this._movieSearch;
+  }
+
+  set movieSearch(value:string){
+  this._movieSearch = value;
+  this.searchedMovies = this.movieSearch ? this.searchMovies(this.movieSearch):this.movies;
+  }
+
+  searchMovies(search:string):any[]{
+
+  search = search.toLocaleLowerCase();
+   return this.movies.filter((movie:any)=>
+   movie.movieName.toLocaleLowerCase()== search);
   
-
-  movies:any[] = [
-      
-
-            { mid :1 , movieName : "avenger" , actor : "captain" , languages:"Tamil/English" , price:200 , rating:4 , 
-                                    imageUrl : "./../assets/avenger.jpeg" },
-            { mid :2 , movieName : "KGF" , actor : "Yash" , languages:"Kannada/Tamil/Hindi" , price:300 , rating:3 , imageUrl : "./../assets/kgf.jpg" },
-            { mid :3 , movieName : "Bahubali" , actor : "Prabhas" , languages:"Kannada/Tamil/Hindi" , price:200 , rating:4 , imageUrl : "./../assets/bahubali.jpg" },
-            { mid :4 , movieName : "NerKonda Parvai" , actor : "Ajith" , languages:"Tamil" , price:400 , rating:3.5 , imageUrl : "./../assets/nkpcard.jpg" },
-            { mid :5 , movieName : "LionKing" , actor : "Cartoon" , languages:"English/Tamil" , price:200 , rating:4 , imageUrl : './../assets/lionkingcard2.jpg' },
-            { mid :6 , movieName : "Ironman" , actor : "robert" , languages:"English" , price:500 , rating:5 , imageUrl : "./../assets/Iron-Man.jpg" },
-
-        ];
+  }  
   
   
   onRatingClicked(output : string) : void{

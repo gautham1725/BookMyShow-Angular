@@ -13,13 +13,11 @@ export class WishListComponent implements OnInit {
     constructor(private route : ActivatedRoute , private router : Router){};
 
     wishlist:any=[];
-    index:number;
 
     ngOnInit(): void {
         let name = this.route.snapshot.paramMap.get('name'); 
         console.log(name);
-        this.wishlist.push(this.index , `${name}`);
-        this.index = this.index +1;
+        this.wishlist.push(`${name}`);
         console.log(name);
     }
 

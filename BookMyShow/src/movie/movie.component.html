@@ -2,6 +2,13 @@
 
 <div style="font-family: 'Comic Sans MS' ; border-bottom-style:solid; width: 170px ; margin-left: 20px"> <h4>{{ title }} </h4> </div>
 <br>
+<div class='card-body'>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="Search for Movies" [(ngModel)]='movieSearch'>
+          </div>
 
 <!--
 <input type="text" [(ngModel)]='topMovie' value="Top-Movie"/><br> <br>
@@ -33,24 +40,23 @@
     <!-- <th> MovieId </th> -->
     <th> Movie Name </th>
     <th> Actor </th>
-    <th> Price </th>
     <th> Languages </th>
     <th> Ratings </th>
     <th> Poster </th>
+    <th> Price </th>
     <th> Booking </th>
     </tr>
     </thead>
 
     <tbody>
 
-        <tr  *ngFor = "let mov of movies">
+        <tr  *ngFor = "let mov of searchedMovies">
 
         <!-- <td> {{ mov.mid }} </td> -->
          <td> <a [routerLink] = " ['/movie' , mov.movieName ] " > {{ mov.movieName | uppercase }} </a> </td>
          <td> {{mov.actor | uppercase }} </td>
-         <td> {{mov.price }} </td>
          <td> {{mov.languages | uppercase }} </td>
-          <td>
+          <td item-width="50px">
             <mov-rating [ratings] = 'mov.rating'
                     (ratingClick) = 'onRatingClicked($event)' ></mov-rating>
          </td>
@@ -59,7 +65,8 @@
                  [style.width.px] = 'imgWidth'
                  [style.height.px] = 'imgHeight' >
          </td>
-
+        
+        <td> {{mov.price }} </td>
 
          <td>
 

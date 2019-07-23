@@ -15,6 +15,7 @@ import { NewUserComponent } from 'src/signup/signup.component';
 import { DoneComponent } from "src/done/done.component";
 import { WishListComponent } from 'src/wishlist/wishlist.component';
 import { BookedComponent } from 'src/booked/booked.component';
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BookedComponent } from 'src/booked/booked.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule ,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

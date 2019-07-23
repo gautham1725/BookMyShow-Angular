@@ -25,7 +25,7 @@
 
   <td  *ngFor = "let tem of trendingMovies" >
     
-<div class="card" style="width: 17rem;">
+<div class="card" style="width: 17.6rem;">
 <img [src]='tem.imageUrl' class="card-img-top" alt="...">
 <div class="card-body">
   <h5 class="card-title"> {{ tem.movieName }} </h5>
@@ -37,9 +37,9 @@
   <li class="list-group-item"><b>Genres :</b>{{ tem.genre }}</li>
   <li class="list-group-item"><b>Ratings :</b>{{ tem.rating }}</li>
 </ul>
-<div class="card-body">
-  <a [routerLink]="['/book', tem.movieName ]" class="card-link">Book Now</a>
-  <a [routerLink]="['/wishlist' , tem.movieName ]" class="card-link">Add to Wishlist</a>
+<div class="card-body ">
+  <a [routerLink]="['/book', tem.movieName ]" class="card-link btn btn-outline-primary" >Book Now</a>
+  <a [routerLink]="['/wishlist' , tem.movieName ]" class="card-link btn btn-outline-success">Wishlist</a>
 </div>
 </div>
       </td>
