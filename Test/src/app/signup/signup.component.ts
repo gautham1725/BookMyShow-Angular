@@ -1,3 +1,5 @@
+import { additional } from './../model/additional';
+import { personal } from './../model/personal';
 import { student } from './../model/student';
 import { Component, OnInit } from '@angular/core';
 
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
 export class SignupComponent implements OnInit {
 
   student = new student();
+  personal = new personal();
+  additional = new additional();
+
+
   studentArray=[];
+  viewed:boolean=false;
 
   constructor() { }
 
@@ -26,8 +34,22 @@ export class SignupComponent implements OnInit {
     this.studentArray.splice(index);
   }
 
-  submit(){
-    console.log(this.studentArray);
+  updateStudent(index){
+    this.studentArray.splice(index);
+  }
+
+  view(i){
+      this.viewed=true;
+      console.log(this.studentArray); 
+    
+  }
+
+  hideDetails(){
+    this.viewed=false;
+  }
+
+  viewPersonal(){
+    console.log(this.personal)
   }
 
 }

@@ -12,6 +12,7 @@ import { SignupComponent } from './signup/signup.component';
   declarations: [
     AppComponent , HomeComponent, AboutComponent, SignupComponent 
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,

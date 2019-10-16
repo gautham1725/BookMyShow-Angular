@@ -1,36 +1,211 @@
-<form (ngSubmit)="submit()">
+<form (ngSubmit)="save()" >
 
-    <div class="container">
+    <div class="form-group col-md-6">
 
-        <div class="form-row" *ngFor="let obj of studentArray;let i=index">
-
-            <div class="form-group col-md-4">
-            <label ><b>Name</b></label>
-            <input type="email" class="form-control" name="name{{i}}" placeholder="Enter Name" [(ngModel)]="obj.name">
-            </div>
-
-            <div class="form-group col-md-2">
-            <label><b>Gender</b></label>
-                    <select class="form-control" name="gender{{i}}" [(ngModel)]="obj.gender" >
-                        <option value="boy" selected="selected">BOY</option>
-                        <option value="girl" >GIRL</option>
-                    </select>
-            </div>
-
-            <div class="form-group col-md-2">
-                <label><b>Age</b></label>
-                <input type="text" class="form-control" name="age{{i}}" placeholder="Enter Age" [(ngModel)]="obj.age" >
-            </div>
-
-            <div class="form-group col-md-2" *ngIf="i!=0">
+                <h4 style="border-bottom-style: solid;width:30%"> Personal Details :-</h4>
                 <br>
-                <span class="btn btn-danger" (click)="removeStudent(i)">-</span>
+                <div style="border-bottom-style: solid;" class="form-group row">
+
+                <br>
+                <label class="col-sm-2 col-form-label">prefix</label>
+                <br>
+                <div class="col-sm-10">
+                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0  col-md-2 " name="prefix" [(ngModel)]="personal.prefix">
+                        <option selected value="Mr" >Mr</option>
+                        <option value="Ms">Ms</option>
+                        <option value="Mrs">Mrs</option>
+                    </select><br><br>
+                </div>
+
+                <label  class="col-sm-2 col-form-label" >First Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="firstName" [(ngModel)]="personal.firstName" placeholder="First Name"><br>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="lastname" [(ngModel)]="personal.lastname"  placeholder="Last Name"><br>
+                </div>
+
+                <label class="col-sm-2 col-form-label">E-mail</label>
+                <div class="col-sm-10">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="personal.email" placeholder="Mail-id"><br>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Mobile1</label>
+                <div class="col-sm-10">
+                    <input type="mobile" class="form-control" name="mobile1" [(ngModel)]="personal.mobile1"  placeholder="Mobile"><br>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Mobile2</label>
+                <div class="col-sm-10">
+                    <input type="mobile" class="form-control" name="mobile2" [(ngModel)]="personal.mobile2" placeholder="Mobile"><br>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="textArea"  col="10" row ="5" name="address1" [(ngModel)]="personal.address1" class="form-control" placeholder="Address line1"><br>
+                </div>
+
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="textArea" col="10" row="5" name="address2" [(ngModel)]="personal.address2" class="form-control" placeholder="Address line2"><br>
+                </div>
+                
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input type="textArea" col="10" row="5" name="address3" [(ngModel)]="personal.address3" class="form-control" placeholder="Address line3"><br>
+                </div>
+
+                <table>
+
+                <tr>
+                    <td> <label class="col-sm-2 col-form-label">schools</label></td>
+                    <select class="custom-select col-md-10" name="school" [(ngModel)]="personal.school" style ="margin-left :45px">
+                            <option selected value="Deeksha" >Deeksha</option>
+                            <option value="New Horizon">New Horizon</option>
+                            <option value="PSBB">PSBB</option>
+                    </select>
+    
+                    <td>
+                        <label style ="margin-left:50px">country</label>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0  col-md-4" name="country" [(ngModel)]="personal.country" style ="margin-left :10px">
+                            <option selected>India</option>
+                            <option value="UK">UK</option>
+                            <option value="US">US</option>
+                        </select></td>
+
+                    <td><label style ="margin-left:10px" >state</label>
+                        <select class="custom-select mb-2 mr-sm-2 mb-sm-0  col-md-7" name="state" [(ngModel)]="personal.state" style ="margin-left    :10px">
+                            <option selected value="Tamilnadu">Tamilnadu</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="hydrabad">hydrabad</option>
+                    </select></td>
+ 
+                </tr>
+
+                </table>
+                
+                <br><br>
+                <br> <br>
+
+                <button type="button" (click)="viewPersonal()" class="btn btn-primary">View</button>
+
             </div>
 
-        </div>
+            <br>
+            <br>
 
-        <span class="btn btn-success mr-2" (click)="addStudent()">+</span>
-        <button type="submit" class="btn btn-primary">Submit</button>
+            <!--<div style="border-bottom-style: solid">
+
+                        <h4 style="border-bottom-style: solid;width:30%"> Student Details :-</h4>
+                        <br>
+                        <div class="form-row" *ngFor="let obj of studentArray;let i=index">
+
+                            <div class="form-group col-md-3">
+                            <label ><b>Name</b></label>
+                            <input type="email" class="form-control" name="name{{i}}" required placeholder="Enter Name" [(ngModel)]="obj.name">
+                            </div>
+
+                            <div class="form-group col-md-2">
+                            <label><b>Gender</b></label>
+                                    <select class="form-control" name="gender{{i}}" [(ngModel)]="obj.gender" >
+                                        <option value="boy" >BOY</option>
+                                        <option value="girl" >GIRL</option>
+                                    </select>
+                            </div> 
+
+                            <div class="form-group col-md-2">
+                                <label><b>Age</b></label>
+                                <input type="text" class="form-control" name="age{{i}}" placeholder="Enter Age" [(ngModel)]="obj.age" >
+                            </div>
+
+                            <div class="form-group col-md-2" *ngIf="i!=0">
+                                <br>
+                                <span class="btn btn-danger" (click)="removeStudent(i)">x</span>
+                            </div>
+                            
+
+                        </div>
+
+                        <span class="btn btn-success mr-2" (    )="addStudent()">+</span>
+                        <button type="button" (click)="view()" class="btn btn-primary">View</button>
+
+                        <br>
+                        <br>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div *ngIf="viewed">
+                    <table cellpadding="9px">
+
+                        <thead >
+                            <tr>
+                                <th> No. </th>
+                                <th> Name </th>
+                                <th> Gender </th>
+                                <th> Age </th>
+                                <th>  </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let obj of studentArray;let i=index">
+                                <td> {{i+1}} </td>
+                                <td>  {{ obj.name }}  </td>
+                                <td>  {{ obj.gender }}  </td>
+                                <td>  {{ obj.age }}   </td>
+                                <td *ngIf="i!=0"> <span class="btn btn-danger" (click)="removeStudent(i)">x</span> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    <span class="btn btn-dark mr-2" (click)="hideDetails()">Hide</span>
+            </div>
+            <br>
+
+            <div style="border-bottom-style: solid" >
+
+                <h4 style="border-bottom-style: solid;width:35%"> Additional Details :-</h4>
+                <br>
+                
+                <table>
+            
+                    <tr><td> <label class="col-sm-2 col-form-label ">Qualification</label></td>
+                        <td><input type="text"  class="form-control"></td>
+                    </tr>
+
+                    <tr><td><label class="col-sm-2 col-form-label">Gender</label></td>
+                    <td><input type="radio" class="mr-2" name="Gender">Male
+                    <input type="radio" name="Gender">Female</td>
+                    </tr>
+
+                    <tr><td><label class="col-sm-2 col-form-label">D.O.B</label></td>
+                    <td><input type="date" class="form-control"></td></tr>
+
+                    <tr>
+                    <td>  <label class="col-sm-6 col-form-label">Note</label></td>
+                    <td> <textarea rows="3" cols="60" idd ="note" ></textarea></td>
+                    </tr>
+
+                    <tr>
+                    <td> <label class="col-sm-6 col-form-label">Suggestion box</label></td>
+                    <td> <textarea rows="3" cols="30" id="suggess"></textarea></td>
+                    </tr>
+
+                    <tr>
+                    <td> <label class="col-sm-2 col-form-label">SalaryRange</label></td>
+                    <td> <input type="range" class="form-control"></td>
+                    </tr>
+                </table>
+
+                <br>
+                <br>
+
+            </div>-->
 
     </div>
 
